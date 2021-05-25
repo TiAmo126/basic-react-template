@@ -1,6 +1,6 @@
-const OFF = 0
-const WARN = 1
-const ERROR = 2
+const OFF = 0 // "off" 或 0 关闭规则
+const WARN = 1 // "warn" 或 1 开启规则-警告级别
+const ERROR = 2 // "error" 或 2 关闭规则-错误级别
 
 module.exports = {
   env: {
@@ -10,6 +10,7 @@ module.exports = {
   },
   // 继承配置，eslint-config关键字可以省略
   // 规则优先级从低到高，后面的配置可以覆盖起那面的配置
+  // :recommended意为启用该继承项中最核心的规则
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -20,12 +21,15 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
   ],
+  // 指定依赖作为解析器：@typescript-eslint/parser - 将 TypeScript 转换成与 estree 兼容的形式，以便在ESLint中使用。
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
+      // 全局启用严格模式
       impliedStrict: true,
       jsx: true,
     },
+    // 支持什么版本的es语法
     ecmaVersion: 12,
     sourceType: 'module',
   },

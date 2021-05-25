@@ -17,3 +17,8 @@ This is a basic react template
 > "singleQuote": true // 使用单引号替代双引号
 >
 > "trailingComma": "es5" // 在对象或数组最后一个元素后面是否加逗号（在 ES5 中加尾逗号）
+
+#### husky
+
+代码检测：npx husky add .husky/pre-commit "npx lint-staged && npx tsc --noEmit"
+提交信息检测：npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'

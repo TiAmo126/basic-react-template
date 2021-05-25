@@ -7,9 +7,16 @@
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   // 代替 vscode 的 ts 语法智能提示
   "typescript.tsdk": "./node_modules/typescript/lib",
-  // 自动修复eslint错误代码
+
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    // 自动修复eslint错误代码
+    "source.fixAll.eslint": true,
+    // 使用stylelint修复样式代码
+    "source.fixAll.stylelint": true
   },
   // 保存时自动格式化代码
   "editor.formatOnSave": true,
