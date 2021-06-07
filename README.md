@@ -156,7 +156,7 @@ module.exports = {
 npm i husky lint-staged -D
 ```
 
-`lint-staged` 指定校验规则，`husky` 提供钩子，比如在执行提交前使用 `lint-staged` 检测代码格式
+`lint-staged` 指定校验规则，`husky` 提供钩子，比如在执行提交前使用 `lint-staged` 检测缓存区的代码格式
 
 该项目中配置了也是最常用的两个钩子
 

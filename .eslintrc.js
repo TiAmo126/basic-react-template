@@ -34,6 +34,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'unicorn', 'promise', '@typescript-eslint', 'prettier'],
+  // 使eslint-plugin-import能正确解析配置的后缀名
   settings: {
     'import/resolver': {
       node: {
@@ -50,6 +51,7 @@ module.exports = {
         ts: 'never',
         tsx: 'never',
         js: 'never',
+        json: 'never',
       },
     ],
     'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
@@ -86,7 +88,6 @@ module.exports = {
     'unicorn/no-null': OFF,
     'unicorn/no-array-reduce': OFF,
 
-    '@typescript-eslint/no-useless-constructor': ERROR,
     '@typescript-eslint/no-empty-function': WARN,
     '@typescript-eslint/no-var-requires': OFF,
     '@typescript-eslint/explicit-function-return-type': OFF,
@@ -116,7 +117,6 @@ module.exports = {
     'no-unused-expressions': WARN,
     'no-plusplus': OFF,
     'class-methods-use-this': ERROR,
-    'jsx-quotes': [ERROR, 'prefer-single'],
     'global-require': OFF,
     'no-use-before-define': OFF,
     'no-restricted-syntax': OFF,
@@ -127,6 +127,10 @@ module.exports = {
     'unicorn/consistent-function-scoping': OFF,
     // 未添加useEffect依赖项时警告
     'react-hooks/exhaustive-deps': WARN,
+    // 不允许导出未命名的组件
+    'react/display-name': OFF,
+    // 强制在jsx中使用双/单引号 prefer-double：强制使用双引号 prefer-single：强制使用单引号
+    'jsx-quotes': [ERROR, 'prefer-double'],
   },
   // 为特定文件制定规则
   overrides: [

@@ -1,4 +1,8 @@
-# 1.0.0 (2021-05-25)
+# 1.0.0 (2021-05-30)
+
+### Bug Fixes
+
+- 修改生成 CHANGELOG 文件脚本命令 ([7e188f6](https://github.com/TiAmo126/basic-react-template/commit/7e188f607d11c96540e178de4518c72a3ad7152b))
 
 ### Features
 
