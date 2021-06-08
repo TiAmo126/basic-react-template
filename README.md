@@ -212,4 +212,8 @@ npm i conventional-changelog-cli -D
 
 #### 8. webpack - 项目打包工具
 
-> 待补充
+> 待优化
+
+- webpack-merge: 写一套基础配置，通过 merge 依赖合并到不同环境下
+- webpack-dev-server: 本地启一个服务，达到预览页面的效果
+- html-webpack-plugin： 将打包后的文件自动引入 html 文件中
