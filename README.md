@@ -214,6 +214,16 @@ npm i conventional-changelog-cli -D
 
 > 待优化
 
+<!-- 1.区分开发环境正式环境，在开发环境下配置服务器打开，正式环境打包压缩代码 -->
+
 - webpack-merge: 写一套基础配置，通过 merge 依赖合并到不同环境下
 - webpack-dev-server: 本地启一个服务，达到预览页面的效果
 - html-webpack-plugin： 将打包后的文件自动引入 html 文件中
+
+<!-- 2.样式文件编译 -->
+
+- style-loader 将模块导出的内容作为样式并添加到 DOM 中
+- css-loader 加载 CSS 文件并解析 import 的 CSS 文件，最终返回 CSS 代码
+- less
+- less-loader 加载并编译 LESS 文件
+- ts-loader
