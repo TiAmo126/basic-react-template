@@ -11,7 +11,26 @@ function getCssLoader(lang) {
       loader: 'css-loader',
       options: {
         sourceMap: isDev,
-        importLoaders: lang === 'css' ? 0 : 1,
+        importLoaders: lang === 'css' ? 1 : 2,
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          plugins: [
+            require('postcss-flexbugs-fixes'),
+            require('postcss-preset-env')({
+              autoprefixer: {
+                grid: true,
+                flexbox: 'no-2009',
+              },
+              stage: 3,
+            }),
+            require('postcss-normalize'),
+          ],
+        },
+        sourceMap: isDev,
       },
     },
   ]
@@ -30,15 +49,32 @@ function getCssLoader(lang) {
 
 module.exports = {
   entry: {
-    app: path.resolve(PROJECT_PATH, './src/app.ts'),
+    app: path.resolve(PROJECT_PATH, './src/index.js'),
   },
   output: {
-    filename: `[name]${isDev ? '' : '.[hash:8]'}.js`,
+    filename: `[name]${isDev ? '' : '.[contenthash]'}.js`,
     path: path.resolve(PROJECT_PATH, './dist'),
     clean: true, // 打包自动清理dist目录
   },
   module: {
     rules: [
+      {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false,
+        },
+        use: [],
+      },
+      {
+        test: /\.(j|t)sx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+          },
+        },
+      },
       {
         test: /\.css$/,
         use: getCssLoader('css'),
@@ -48,8 +84,35 @@ module.exports = {
         use: getCssLoader('less'),
       },
       {
-        test: /\.ts$/i,
+        test: /\.ts$/,
         use: 'ts-loader',
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10 * 1024,
+              name: '[name].[hash:8].[ext]',
+              outputPath: 'assets/images',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              // 当文件小于10kb的时候采用url-loader将图片打包成base64的格式（否则就用file-loader）
+              limit: 10 * 1024,
+              name: '[name].[hash:8].[ext]',
+              outputPath: 'assets/fonts',
+            },
+          },
+        ],
       },
     ],
   },

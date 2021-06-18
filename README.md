@@ -227,3 +227,24 @@ npm i conventional-changelog-cli -D
 - less
 - less-loader 加载并编译 LESS 文件
 - ts-loader
+- postcss-loader 使用 PostCSS 加载并转换 CSS 文件,使写出来的 css 兼容更多浏览器
+- postcss-flexbugs-fixes ：用于修复一些和 flex 布局相关的 bug。
+- postcss-preset-env ：将最新的 CSS 语法转换为目标环境的浏览器能够理解的 CSS 语法，目的是使开发者不用考虑浏览器兼容问题
+- autoprefixer 自动添加浏览器头
+- postcss-normalize ：从 browserslist 中自动导入所需要的 normalize.css 内容。
+
+- browserslist:配置对浏览器的支持条件
+
+- url-loader: 在文件大小低于指定限制的时候将其打包成 base64URL 的格式
+- file-loader:将一个文件中的 import/require() 解析为 url，并且将文件发送到输出文件夹。
+
+<!-- ts当中引入文件资源会报错 -->
+
+> 解决方法：新建一个 d.ts 文件，使用 declare module 的形式声明一下文件的类型，详情参考 shims-react.d.ts
+
+<!-- webpack 解析 (t | j)sx 语法 -->
+
+- "@babel/core": "^7.14.3",
+- "@babel/preset-react": "^7.14.5",
+- "@babel/preset-typescript": "^7.13.0",
+- "babel-loader": "^8.2.2",
