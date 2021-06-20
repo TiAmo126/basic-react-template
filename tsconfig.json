@@ -21,5 +21,6 @@
     /* Source Map Options */
     "resolveJsonModule": true,
     "skipLibCheck": true
-  }
+  },
+  "exclude": ["node_modules"]
 }

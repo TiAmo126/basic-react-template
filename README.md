@@ -244,7 +244,11 @@ npm i conventional-changelog-cli -D
 
 <!-- webpack 解析 (t | j)sx 语法 -->
 
-- "@babel/core": "^7.14.3",
-- "@babel/preset-react": "^7.14.5",
-- "@babel/preset-typescript": "^7.13.0",
-- "babel-loader": "^8.2.2",
+- "babel-loader":允许使用 babel 和 webpack 转译 tsx 文件
+- "@babel/core":babel 核心包，使用 babel-loader 必须安装
+- "@babel/preset-env":根据设置的浏览器环境找出所需的插件转译 ES6 语法
+- "@babel/preset-react": 编译 react 文件，记得将 runtime 配置设置为 automatic，这样才会自动导入 JSX 转换而来的函数
+- "@babel/preset-typescript": 编译 ts
+- "@babel/plugin-transform-runtime": 累屎@babel/preset-env
+
+<!-- 设置网页图标 -->

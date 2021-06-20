@@ -49,7 +49,7 @@ function getCssLoader(lang) {
 
 module.exports = {
   entry: {
-    app: path.resolve(PROJECT_PATH, './src/index.js'),
+    app: path.resolve(PROJECT_PATH, './src/index.tsx'),
   },
   output: {
     filename: `[name]${isDev ? '' : '.[contenthash]'}.js`,

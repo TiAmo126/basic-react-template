@@ -1,10 +1,16 @@
 import { FC } from 'react'
-import styles from './app.less'
 
 const App: FC = () => {
   return (
     <div>
-      <p className={styles.root}>22</p>
+      <ul>
+        <li>11</li>
+        <li>11</li>
+        <li>11</li>
+        <li>11</li>
+        <li>11</li>
+        <li>11</li>
+      </ul>
     </div>
   )
 }
