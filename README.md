@@ -251,4 +251,16 @@ npm i conventional-changelog-cli -D
 - "@babel/preset-typescript": 编译 ts
 - "@babel/plugin-transform-runtime": 累屎@babel/preset-env
 
-<!-- 设置网页图标 -->
+## webpack 优化阶段
+
+### 1.favicon 图标
+
+> 打包后：先在 htmlWebpackPlugin 中配置 favicon 属性，并指定路径。用以项目打包 favicon 文件，并在 index.html 文件中自动引入该文件
+>
+> 本地运行：直接在本地入口文件 index.html 文件中引入 favicon 图标，本地运行时就直接有效果了 <link rel="icon" href="favicon.ico" />
+
+### 2.css module
+
+### 3.保存后浏览器热更新
+
+### 4.编译显示进度

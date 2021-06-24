@@ -9,5 +9,6 @@ module.exports = merge(common, {
     clientLogLevel: 'silent',
     stats: 'errors-only', // 终端只打印error
     open: true, // 编译完成自动打开浏览器
+    port: 3002,
   },
 })

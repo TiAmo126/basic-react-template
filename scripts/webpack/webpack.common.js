@@ -119,6 +119,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(PROJECT_PATH, './public/index.html'),
+      favicon: path.resolve(PROJECT_PATH, './public/favicon.ico'),
     }),
   ],
   resolve: {
