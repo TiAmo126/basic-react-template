@@ -150,7 +150,7 @@ module.exports = {
 }
 ```
 
-#### **6. husky&&**commitlint - 提交代码前，校验一次代码规则，并规范提交信息
+#### 6. husky&&commitlint - 提交代码前，校验一次代码规则，并规范提交信息
 
 ```javascript
 npm i husky lint-staged -D
@@ -262,5 +262,8 @@ npm i conventional-changelog-cli -D
 ### 2.css module
 
 ### 3.保存后浏览器热更新
+
+> 不生效原因：热更新不支持 browserslist
+> 解决方法：webpack.config.js 中添加 target: isDev ? 'web' : 'browserslist',
 
 ### 4.编译显示进度

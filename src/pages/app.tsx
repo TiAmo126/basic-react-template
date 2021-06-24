@@ -4,12 +4,10 @@ const App: FC = () => {
   return (
     <div>
       <ul>
-        <li>11</li>
-        <li>33</li>
-        <li>11</li>
-        <li>11</li>
-        <li>22</li>
-        <li>11</li>
+        <li>1222####221</li>
+        <li>1222####221</li>
+        <li>122s%%ss1</li>
+        <li>2222</li>
       </ul>
     </div>
   )

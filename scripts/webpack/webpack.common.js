@@ -48,6 +48,7 @@ function getCssLoader(lang) {
 }
 
 module.exports = {
+  target: isDev ? 'web' : 'browserslist',
   entry: {
     app: path.resolve(PROJECT_PATH, './src/index.tsx'),
   },
@@ -118,6 +119,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: '基础模板',
       template: path.resolve(PROJECT_PATH, './public/index.html'),
       favicon: path.resolve(PROJECT_PATH, './public/favicon.ico'),
     }),
@@ -128,6 +130,6 @@ module.exports = {
       '@': path.resolve(PROJECT_PATH, './src'),
     },
     // 添加这些后缀名作为解析，引入时可不用添加后缀（优先级按照数组顺序）
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
 }
