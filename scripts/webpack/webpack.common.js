@@ -1,6 +1,7 @@
 // webpack公共配置文件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const WebpackBar = require('webpackbar')
 const { PROJECT_PATH, isDev } = require('../constants')
 
 // 针对不同的样式文件引用不同的loader，因为大部分相同，所以抽成公共方法
@@ -123,6 +124,7 @@ module.exports = {
       template: path.resolve(PROJECT_PATH, './public/index.html'),
       favicon: path.resolve(PROJECT_PATH, './public/favicon.ico'),
     }),
+    new WebpackBar(),
   ],
   resolve: {
     // 路径别名

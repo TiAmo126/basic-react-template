@@ -265,5 +265,12 @@ npm i conventional-changelog-cli -D
 
 > 不生效原因：热更新不支持 browserslist
 > 解决方法：webpack.config.js 中添加 target: isDev ? 'web' : 'browserslist',
+> github.com 中开发者写到，预计 4.0.0 修复与 browserslist 冲突问题
 
 ### 4.编译显示进度
+
+> 安装 webpackbar 依赖，在 plugin 中添加
+
+### 5.查看包大小以及依赖关系
+
+> 安装 webpack-bundle-analyzer 依赖，添加到开发环境下的 plugin 中
