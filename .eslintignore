@@ -1,3 +1,4 @@
 *.d.ts
 jsonp.js
-build/
+dist/
+node_modules/

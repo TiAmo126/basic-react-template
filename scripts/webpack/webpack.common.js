@@ -1,4 +1,5 @@
 // webpack公共配置文件
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
@@ -11,9 +12,6 @@ function getCssLoader(lang) {
     'style-loader',
     {
       loader: require.resolve('@opd/css-modules-typings-loader'),
-      // options: {
-      //   disableLocalsExport: true,
-      // },
     },
     {
       loader: 'css-loader',
@@ -144,11 +142,16 @@ module.exports = {
       // 忽略样式类型文件的编译
       resourceRegExp: /(css|less)\.d\.ts$/,
     }),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: './src/**/*.{ts,tsx,js,jsx}',
+      },
+    }),
   ],
   resolve: {
     // 路径别名
     alias: {
-      '@': path.resolve(PROJECT_PATH, './src'),
+      '@': path.resolve(PROJECT_PATH, './src/'),
     },
     // 添加这些后缀名作为解析，引入时可不用添加后缀（优先级按照数组顺序）
     extensions: ['.ts', '.tsx', '.js', '.jsx'],

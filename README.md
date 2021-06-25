@@ -249,7 +249,7 @@ npm i conventional-changelog-cli -D
 - "@babel/preset-env":根据设置的浏览器环境找出所需的插件转译 ES6 语法
 - "@babel/preset-react": 编译 react 文件，记得将 runtime 配置设置为 automatic，这样才会自动导入 JSX 转换而来的函数
 - "@babel/preset-typescript": 编译 ts
-- "@babel/plugin-transform-runtime": 累屎@babel/preset-env
+- "@babel/plugin-transform-runtime": 类似@babel/preset-env
 
 ## webpack 优化阶段
 
@@ -279,3 +279,7 @@ npm i conventional-changelog-cli -D
 ### 5.查看包大小以及依赖关系
 
 > 安装 webpack-bundle-analyzer 依赖，添加到开发环境下的 plugin 中
+
+### 6.正式环境打包编译时的 ts 类型检测
+
+> fork-ts-checker-webpack-plugin
