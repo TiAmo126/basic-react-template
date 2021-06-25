@@ -1,6 +1,7 @@
 // webpack公共配置文件
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 const { PROJECT_PATH, isDev } = require('../constants')
 
@@ -9,10 +10,23 @@ function getCssLoader(lang) {
   const loaders = [
     'style-loader',
     {
+      loader: require.resolve('@opd/css-modules-typings-loader'),
+      // options: {
+      //   disableLocalsExport: true,
+      // },
+    },
+    {
       loader: 'css-loader',
       options: {
         sourceMap: isDev,
         importLoaders: lang === 'css' ? 1 : 2,
+        modules: {
+          // 在本地环境下为了方便调试，我们将样式名展示为路径拼接类名
+          localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64]',
+          // 将本地环境的命名转换为驼峰格式
+          exportLocalsConvention: 'camelCaseOnly',
+          auto: true,
+        },
       },
     },
     {
@@ -49,7 +63,7 @@ function getCssLoader(lang) {
 }
 
 module.exports = {
-  target: isDev ? 'web' : 'browserslist',
+  target: isDev ? 'web' : 'browserslist', // webpack-dev-server热更新与browserslist环境冲突
   entry: {
     app: path.resolve(PROJECT_PATH, './src/index.tsx'),
   },
@@ -74,6 +88,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
+            include: path.resolve(PROJECT_PATH, './src'),
           },
         },
       },
@@ -124,7 +139,11 @@ module.exports = {
       template: path.resolve(PROJECT_PATH, './public/index.html'),
       favicon: path.resolve(PROJECT_PATH, './public/favicon.ico'),
     }),
-    new WebpackBar(),
+    new WebpackBar(), // 显示编译进度
+    new webpack.IgnorePlugin({
+      // 忽略样式类型文件的编译
+      resourceRegExp: /(css|less)\.d\.ts$/,
+    }),
   ],
   resolve: {
     // 路径别名

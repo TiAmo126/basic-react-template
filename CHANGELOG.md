@@ -1,3 +1,10 @@
+# 1.2.0 (2021-06-24)
+
+### Features
+
+- webpack-dev-server 热更新问题 ([9adab5f](https://github.com/TiAmo126/basic-react-template/commit/9adab5f169340f0cc7342717de7ca963ad8fe400))
+- webpack 正式环境打包，开发环境运行 ([68099af](https://github.com/TiAmo126/basic-react-template/commit/68099af993c7b73ea7067ad158122917a0604765))
+
 # 1.1.0 (2021-06-24)
 
 ### Bug Fixes

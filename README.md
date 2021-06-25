@@ -261,6 +261,11 @@ npm i conventional-changelog-cli -D
 
 ### 2.css module
 
+> 使用 css module，会在类名上自动添加 hash 字符串，避免了同名样式冲突
+>
+> 1. 安装@opd/css-modules-typings-loader 依赖，在 css-loader 之前配置
+> 2. 安装 @teamsupercell/typings-for-css-modules-loader 依赖，在 css-loader 之前配置
+
 ### 3.保存后浏览器热更新
 
 > 不生效原因：热更新不支持 browserslist
