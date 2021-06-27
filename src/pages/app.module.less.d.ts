@@ -1,5 +1,5 @@
 interface CSSModules {
-  root: string
+  page: string
 }
 export const cssModules: CSSModules
 export default cssModules

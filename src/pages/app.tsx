@@ -1,11 +1,10 @@
 import { FC } from 'react'
 import styles from './app.module.less'
-import Test from './test'
 
 const App: FC = () => {
   return (
-    <div className={styles.root}>
-      <Test name="lxy" age={18} />
+    <div className={styles.page}>
+      <h1>基础模板</h1>
     </div>
   )
 }

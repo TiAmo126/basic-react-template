@@ -1,10 +1,9 @@
 // webpack公共配置文件
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
 const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
-const { PROJECT_PATH, isDev } = require('../constants')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const { srcDir, isDev, entryPath, buildPath, templatePath, faviconPath } = require('../constants')
 
 // 针对不同的样式文件引用不同的loader，因为大部分相同，所以抽成公共方法
 function getCssLoader(lang) {
@@ -63,11 +62,11 @@ function getCssLoader(lang) {
 module.exports = {
   target: isDev ? 'web' : 'browserslist', // webpack-dev-server热更新与browserslist环境冲突
   entry: {
-    app: path.resolve(PROJECT_PATH, './src/index.tsx'),
+    app: entryPath,
   },
   output: {
     filename: `[name]${isDev ? '' : '.[contenthash]'}.js`,
-    path: path.resolve(PROJECT_PATH, './dist'),
+    path: buildPath,
     clean: true, // 打包自动清理dist目录
   },
   module: {
@@ -86,7 +85,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            include: path.resolve(PROJECT_PATH, './src'),
+            include: srcDir,
           },
         },
       },
@@ -134,8 +133,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '基础模板',
-      template: path.resolve(PROJECT_PATH, './public/index.html'),
-      favicon: path.resolve(PROJECT_PATH, './public/favicon.ico'),
+      template: templatePath,
+      favicon: faviconPath,
     }),
     new WebpackBar(), // 显示编译进度
     new webpack.IgnorePlugin({
@@ -143,6 +142,7 @@ module.exports = {
       resourceRegExp: /(css|less)\.d\.ts$/,
     }),
     new ForkTsCheckerWebpackPlugin({
+      // 打包时对文件进行类型检测
       eslint: {
         files: './src/**/*.{ts,tsx,js,jsx}',
       },
@@ -151,7 +151,7 @@ module.exports = {
   resolve: {
     // 路径别名
     alias: {
-      '@': path.resolve(PROJECT_PATH, './src/'),
+      '@': srcDir,
     },
     // 添加这些后缀名作为解析，引入时可不用添加后缀（优先级按照数组顺序）
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
