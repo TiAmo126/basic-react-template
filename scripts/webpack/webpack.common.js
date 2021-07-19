@@ -4,11 +4,12 @@ const WebpackBar = require('webpackbar')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { srcDir, isDev, entryPath, buildPath, templatePath, faviconPath } = require('../constants')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // 针对不同的样式文件引用不同的loader，因为大部分相同，所以抽成公共方法
 function getCssLoader(lang) {
   const loaders = [
-    'style-loader',
+    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
       loader: require.resolve('@opd/css-modules-typings-loader'),
     },
@@ -136,6 +137,9 @@ module.exports = {
       title: '基础模板',
       template: templatePath, // 复制该路径下的html文件，并自动引入打包输出的所有文件
       favicon: faviconPath,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash].css',
     }),
     new WebpackBar(), // 显示编译进度
     new webpack.IgnorePlugin({

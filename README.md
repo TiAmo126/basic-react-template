@@ -552,6 +552,20 @@ module.exports = {
   }),
   ```
 
+- 正式环境下打包将 `css` 文件从 `js` 中抽离出来
+
+  ```javascript
+  安装 mini-css-extract-plugin 依赖
+
+  在 webpack.common.js 的 plugins 中添加
+  new MiniCssExtractPlugin({
+    // 将分离开的css文件输出到dist/css下
+    filename: 'css/[name].[contenthash].css',
+  }),
+  还要记得将 style-loader 一下,因为 MiniCssExtractPlugin.loader 做的事情就是提取 js 中的 css 成单独文件
+  [ isDev ? 'style-loader' : MiniCssExtractPlugin.loader ]
+  ```
+
 - 热更新不生效
 
   原因：因为热更新不支持 `browserslist`
