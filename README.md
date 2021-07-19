@@ -289,12 +289,12 @@ module.exports = merge(common, {
 
 ```javascript
 样式资源文件 loader 及相关依赖
-style-loader: 将模块导出的内容作为样式并添加到 DOM 中
+style-loader: 生成一个 style 标签将 js 中的 css 样式字符串放进去，然后插入到 html 中生效
 
-css-loader: 加载 CSS 文件并解析 import 的 CSS 文件，最终返回 CSS 代码
+css-loader: 将 css 文件解析为字符串写入到 js 文件中
 
 less
-less-loader: 加载并编译 LESS 文件
+less-loader: 将 less 文件编译解析为 css 文件
 
 ts-loader: 编译 ts 文件
 

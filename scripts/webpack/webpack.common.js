@@ -109,7 +109,7 @@ module.exports = {
             options: {
               limit: 10 * 1024,
               name: '[name].[hash:8].[ext]',
-              outputPath: 'assets/images',
+              outputPath: 'assets/fonts',
             },
           },
         ],
@@ -122,8 +122,9 @@ module.exports = {
             options: {
               // 当文件小于10kb的时候采用url-loader将图片打包成base64的格式（否则就用file-loader）
               limit: 10 * 1024,
+              // [ext]:取文件的原扩展名
               name: '[name].[hash:8].[ext]',
-              outputPath: 'assets/fonts',
+              outputPath: 'assets/images',
             },
           },
         ],
@@ -133,7 +134,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '基础模板',
-      template: templatePath,
+      template: templatePath, // 复制该路径下的html文件，并自动引入打包输出的所有文件
       favicon: faviconPath,
     }),
     new WebpackBar(), // 显示编译进度
