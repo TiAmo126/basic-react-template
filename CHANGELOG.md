@@ -1,3 +1,13 @@
+## [1.3.3](https://github.com/TiAmo126/basic-react-template/compare/v1.3.2...v1.3.3) (2021-07-19)
+
+### Bug Fixes
+
+- 项目打包后资源输出文件夹名错误 ([d4171d2](https://github.com/TiAmo126/basic-react-template/commit/d4171d2a56bb9476df202eab54ca5b19909fb881))
+
+### Features
+
+- 开发环境下将 css 文件单独打包 ([c2f8753](https://github.com/TiAmo126/basic-react-template/commit/c2f8753b122348586595a45d009ec0881659e107))
+
 ## [1.3.2](https://github.com/TiAmo126/basic-react-template/compare/v1.3.1...v1.3.2) (2021-07-12)
 
 ### Bug Fixes
