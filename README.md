@@ -566,6 +566,19 @@ module.exports = {
   [ isDev ? 'style-loader' : MiniCssExtractPlugin.loader ]
   ```
 
+- 压缩 `css` 代码
+
+  ```javascript
+  安装 css-minimizer-webpack-plugin 依赖
+
+  在 webpack.common.js 中添加
+  optimization: {
+    minimize: !isDev,
+    minimizer: [new CssMinimizerPlugin()],
+  },
+  意味着根据不同的环境采取不同的优化，这里意为当不是 development 环境时使用插件压缩 css 代码
+  ```
+
 - 热更新不生效
 
   原因：因为热更新不支持 `browserslist`

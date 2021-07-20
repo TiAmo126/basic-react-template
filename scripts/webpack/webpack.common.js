@@ -5,10 +5,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { srcDir, isDev, entryPath, buildPath, templatePath, faviconPath } = require('../constants')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 // 针对不同的样式文件引用不同的loader，因为大部分相同，所以抽成公共方法
 function getCssLoader(lang) {
   const loaders = [
+    // 开发环境下将css文件分开打包
     isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
     {
       loader: require.resolve('@opd/css-modules-typings-loader'),
@@ -153,6 +155,11 @@ module.exports = {
       },
     }),
   ],
+  // 可以指定某些条件下使用特定的压缩工具
+  optimization: {
+    minimize: !isDev,
+    minimizer: [new CssMinimizerPlugin()],
+  },
   resolve: {
     // 路径别名
     alias: {
