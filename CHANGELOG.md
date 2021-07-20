@@ -1,3 +1,9 @@
+## [1.3.4](https://github.com/TiAmo126/basic-react-template/compare/v1.3.3...v1.3.4) (2021-07-20)
+
+### Features
+
+- 正式环境下压缩 css 代码 ([b424e56](https://github.com/TiAmo126/basic-react-template/commit/b424e56e1e6ea675b718bcf162a0409eb636dd76))
+
 ## [1.3.3](https://github.com/TiAmo126/basic-react-template/compare/v1.3.2...v1.3.3) (2021-07-19)
 
 ### Bug Fixes
