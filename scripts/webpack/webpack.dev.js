@@ -10,5 +10,6 @@ module.exports = merge(common, {
     stats: 'errors-only', // 终端只打印error
     open: true, // 编译完成自动打开浏览器
     port: 3002,
+    hot: true, // 启用HMR-热模块替换（只会更新有改变的模块）
   },
 })

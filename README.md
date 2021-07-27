@@ -466,7 +466,7 @@ module.exports = {
 
 ```
 
-##### 8.3 配置优化和相关问题
+##### 8.3 配置优化
 
 - 项目打包 `favicon` 图标，并在打包后的 `index.html` 文件中自动引入 `favicon`
 
@@ -529,6 +529,19 @@ module.exports = {
   new WebpackBar(), // 显示编译进度
   ```
 
+- 开发环境下启用 `HMR` 模块热替换
+
+  ```javascript
+  在 webpack.dev.js 中添加
+  module.exports = merge(common, {
+    // ...
+    devServer: {
+      // ...
+      hot: true, // 启用HMR-热模块替换（只会更新有改变的模块）
+    },
+  })
+  ```
+
 - 在生产环境编译完成的时候查看包大小和依赖关系
 
   ```javascript
@@ -552,7 +565,7 @@ module.exports = {
   }),
   ```
 
-- 正式环境下打包将 `css` 文件从 `js` 中抽离出来
+- 生产环境下打包将 `css` 文件从 `js` 中抽离出来
 
   ```javascript
   安装 mini-css-extract-plugin 依赖
@@ -566,7 +579,7 @@ module.exports = {
   [ isDev ? 'style-loader' : MiniCssExtractPlugin.loader ]
   ```
 
-- 压缩 `css` 代码
+- 生产环境下压缩 `css` 代码
 
   ```javascript
   安装 css-minimizer-webpack-plugin 依赖
@@ -578,6 +591,8 @@ module.exports = {
   },
   意味着根据不同的环境采取不同的优化，这里意为当不是 development 环境时使用插件压缩 css 代码
   ```
+
+##### 8.4 相关问题
 
 - 热更新不生效
 
