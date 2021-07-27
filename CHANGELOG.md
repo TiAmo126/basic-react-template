@@ -1,3 +1,9 @@
+## [1.3.5](https://github.com/TiAmo126/basic-react-template/compare/v1.3.4...v1.3.5) (2021-07-27)
+
+### Features
+
+- open HMR ([7c07bd1](https://github.com/TiAmo126/basic-react-template/commit/7c07bd146d71aff922513c7cc7f52f15ecfe878d))
+
 ## [1.3.4](https://github.com/TiAmo126/basic-react-template/compare/v1.3.3...v1.3.4) (2021-07-20)
 
 ### Features
