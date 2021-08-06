@@ -68,6 +68,9 @@ module.exports = {
     app: entryPath,
   },
   output: {
+    // 这里我们使用 contenthash，是因为这样 webpack 就会根据文件内容生成不同的 hash 值
+    // 因为如果打包后文件 hash 值都一样，那么只要改变任意一个文件会导致所有文件都会重新请求，
+    // 而我们之所以要使用 hash 是为了当内容发生更改时，浏览器会去重新发起请求，而不是使用缓存
     filename: `[name]${isDev ? '' : '.[contenthash]'}.js`,
     path: buildPath,
     clean: true, // 打包自动清理dist目录
@@ -75,7 +78,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
         resolve: {
           fullySpecified: false,
         },
@@ -87,6 +89,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
+            // 缓存babel执行结果，提升打包速度
             cacheDirectory: true,
             include: srcDir,
           },
