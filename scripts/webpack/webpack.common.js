@@ -162,6 +162,10 @@ module.exports = {
   optimization: {
     minimize: !isDev,
     minimizer: [new CssMinimizerPlugin()],
+    // 将node_modules中的代码单独打包成一个chunk
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   resolve: {
     // 路径别名
