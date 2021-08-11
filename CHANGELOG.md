@@ -1,3 +1,9 @@
+## [1.3.6](https://github.com/TiAmo126/basic-react-template/compare/v1.3.5...v1.3.6) (2021-08-11)
+
+### Features
+
+- 代码分割-spiltChunks ([d9e659b](https://github.com/TiAmo126/basic-react-template/commit/d9e659beb4d65d0b5007dbcdb5a291f4283e28c4))
+
 ## [1.3.5](https://github.com/TiAmo126/basic-react-template/compare/v1.3.4...v1.3.5) (2021-07-27)
 
 ### Features
