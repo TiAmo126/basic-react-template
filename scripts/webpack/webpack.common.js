@@ -78,12 +78,6 @@ module.exports = {
   module: {
     rules: [
       {
-        resolve: {
-          fullySpecified: false,
-        },
-        use: [],
-      },
-      {
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: {
