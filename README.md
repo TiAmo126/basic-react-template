@@ -195,6 +195,14 @@ npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"' // 提
 }
 ```
 
+在根目录下新增 `.commitlintrc.js` 文件
+
+```javascript
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+}
+```
+
 #### 7. conventional-changelog-cli - 根据规范的提交信息自动生成 CHNAGELOG
 
 ```javascript
