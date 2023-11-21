@@ -14,21 +14,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TiAmo126/basic-react-template.git"
+    "url": "git+https://github.com/chanceyliu/basic-react-template.git"
   },
   "keywords": [
     "react",
     "typescript"
   ],
   "author": {
-    "name": "TiAmo126",
-    "url": "https://github.com/TiAmo126"
+    "name": "chance",
+    "url": "https://github.com/chanceyliu"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TiAmo126/basic-react-template/issues"
+    "url": "https://github.com/chanceyliu/basic-react-template/issues"
   },
-  "homepage": "https://github.com/TiAmo126/basic-react-template#readme",
+  "homepage": "https://github.com/chanceyliu/basic-react-template#readme",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -40,6 +40,7 @@
     "@babel/preset-env": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.13.0",
+    "@chanceliu/eslint-config": "^1.0.1",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@opd/css-modules-typings-loader": "^1.0.6",
@@ -48,26 +49,13 @@
     "@types/react-dom": "^17.0.7",
     "@types/webpack": "^5.28.0",
     "@types/webpack-merge": "^5.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.28.0",
-    "@typescript-eslint/parser": "^4.28.0",
+    "@wii/eslint-config-wii": "^2.7.0",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
     "conventional-changelog-cli": "^2.1.1",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.2",
-    "eslint": "^7.26.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-config-standard-jsx": "^10.0.0",
-    "eslint-config-standard-react": "^11.0.1",
-    "eslint-plugin-import": "^2.23.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^33.0.1",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.2.12",
     "html-webpack-plugin": "^5.3.1",
@@ -80,7 +68,6 @@
     "postcss-loader": "^6.1.0",
     "postcss-normalize": "^10.0.0",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.3.0",
     "source-map-loader": "^3.0.0",
     "style-loader": "^2.0.0",
     "stylelint": "^13.13.1",
@@ -88,7 +75,7 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-prettier": "^1.2.0",
     "ts-loader": "^9.2.3",
-    "typescript": "4.2.x",
+    "typescript": "^5.0.2",
     "url-loader": "^4.1.1",
     "webpack": "^5.38.1",
     "webpack-bundle-analyzer": "^4.4.2",
